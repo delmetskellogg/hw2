@@ -68,14 +68,93 @@
 
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
-# TODO!
+Movie.destroy_all
+Person.destroy_all
+Role.destroy_all
+
+
 
 # Generate models and tables, according to the domain model
-# TODO!
+#done via terminal and migrate folders
 
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
-# TODO!
+
+# Batman Begins          Christian Bale        Bruce Wayne
+# Batman Begins          Michael Caine         Alfred
+# Batman Begins          Liam Neeson           Ra's Al Ghul
+# Batman Begins          Katie Holmes          Rachel Dawes
+# Batman Begins          Gary Oldman           Commissioner Gordon
+# The Dark Knight        Christian Bale        Bruce Wayne
+# The Dark Knight        Heath Ledger          Joker
+# The Dark Knight        Aaron Eckhart         Harvey Dent
+# The Dark Knight        Michael Caine         Alfred
+# The Dark Knight        Maggie Gyllenhaal     Rachel Dawes
+# The Dark Knight Rises  Christian Bale        Bruce Wayne
+# The Dark Knight Rises  Gary Oldman           Commissioner Gordon
+# The Dark Knight Rises  Tom Hardy             Bane
+# The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
+# The Dark Knight Rises  Anne Hathaway         Selina Kyle
+
+human = {  name: "Christian Bale"}
+person = Person.new(human)
+human.save
+human = {  name: "Michael Caine"}
+person = Person.new(human)
+human.save
+human = {  name: "Liam Neeson"}
+person = Person.new(human)
+human.save
+human = {  name: "Katie Holmes"}
+person = Person.new(human)
+human.save
+human = {  name: "Gary Oldman"}
+person = Person.new(human)
+human.save
+human = {  name: "Heath Ledger"}
+person = Person.new(human)
+human.save
+human = {  name: "Aaron Eckhart"}
+person = Person.new(human)
+human.save
+human = {  name: "Maggie Gyllenhaal"}
+person = Person.new(human)
+human.save
+human = {  name: "Tom Hardy"}
+person = Person.new(human)
+human.save
+human = {  name: "Joseph Gordon-Levitt"}
+person = Person.new(human)
+human.save
+human = {  name: "Anne Hathaway"}
+person = Person.new(human)
+human.save
+
+people= Person.all
+for person in people
+    puts "#{name}"
+end
+
+movie1 = {
+  title: "Batman Begins",
+  year_released: 2005,
+  rated: "PG-13",
+  person_id: Person.where({name: "Christopher Nolan"})[0]
+}
+
+movie2 = {
+  title: "The Dark Knight",
+  year_released: 2008,
+  rated: "PG-13",
+  person_id: Person.where({name: "Christopher Nolan"})[0]
+}
+
+movie3 = {
+  title: "The Dark Knight Rises",
+  year_released: 2012,
+  rated: "PG-13",
+  person_id: Person.where({name: "Christopher Nolan"})[0]
+}
 
 # Prints a header for the movies output
 puts "Movies"
