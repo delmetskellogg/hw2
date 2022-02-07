@@ -129,7 +129,9 @@ person.save
 human = {  name: "Anne Hathaway"}
 person = Person.new(human)
 person.save
-
+human = {  name: "Christopher Nolan"}
+person = Person.new(human)
+person.save
 
 
 people= Person.all
@@ -137,12 +139,11 @@ for person in people
     puts "#{person.name}"
 end
 
-director_id=Person.where({name: "Christopher Nolan"})[0]
 movie3 = {
   title: "Batman Begins",
   year_released: 2005,
   rated: "PG-13",
-  person_id: 17
+  person_id: Person.where({name: "Christopher Nolan"})[0]
 }
 film = Movie.new(movie3)
 film.save
@@ -155,7 +156,7 @@ movie1 = {
 }
 film = Movie.new(movie1)
 film.save
-
+director=Person.where({name: "Christopher Nolan"})[0]
 movie2 = {
   title: "The Dark Knight Rises",
   year_released: 2012,
@@ -173,7 +174,7 @@ puts "Movies"
 puts "======"
 puts ""
 films= Movie.all
-puts films.inspect
+puts films
 for film in films
     
     #director=film.person_id
