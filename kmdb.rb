@@ -98,68 +98,88 @@ Role.destroy_all
 
 human = {  name: "Christian Bale"}
 person = Person.new(human)
-human.save
+person.save
 human = {  name: "Michael Caine"}
 person = Person.new(human)
-human.save
+person.save
 human = {  name: "Liam Neeson"}
 person = Person.new(human)
-human.save
+person.save
 human = {  name: "Katie Holmes"}
 person = Person.new(human)
-human.save
+person.save
 human = {  name: "Gary Oldman"}
 person = Person.new(human)
-human.save
+person.save
 human = {  name: "Heath Ledger"}
 person = Person.new(human)
-human.save
+person.save
 human = {  name: "Aaron Eckhart"}
 person = Person.new(human)
-human.save
+person.save
 human = {  name: "Maggie Gyllenhaal"}
 person = Person.new(human)
-human.save
+person.save
 human = {  name: "Tom Hardy"}
 person = Person.new(human)
-human.save
+person.save
 human = {  name: "Joseph Gordon-Levitt"}
 person = Person.new(human)
-human.save
+person.save
 human = {  name: "Anne Hathaway"}
 person = Person.new(human)
-human.save
+person.save
+
+
 
 people= Person.all
 for person in people
-    puts "#{name}"
+    puts "#{person.name}"
 end
 
-movie1 = {
+director_id=Person.where({name: "Christopher Nolan"})[0]
+movie3 = {
   title: "Batman Begins",
   year_released: 2005,
   rated: "PG-13",
-  person_id: Person.where({name: "Christopher Nolan"})[0]
+  person_id: 17
 }
+film = Movie.new(movie3)
+film.save
 
-movie2 = {
+movie1 = {
   title: "The Dark Knight",
   year_released: 2008,
   rated: "PG-13",
   person_id: Person.where({name: "Christopher Nolan"})[0]
 }
+film = Movie.new(movie1)
+film.save
 
-movie3 = {
+movie2 = {
   title: "The Dark Knight Rises",
   year_released: 2012,
   rated: "PG-13",
   person_id: Person.where({name: "Christopher Nolan"})[0]
 }
+film = Movie.new(movie2)
+film.save
+
+
+
 
 # Prints a header for the movies output
 puts "Movies"
 puts "======"
 puts ""
+films= Movie.all
+puts films.inspect
+for film in films
+    
+    #director=film.person_id
+    
+    puts "#{film.title} #{film.year_released} #{film.rated}" #{director.name}"
+end
 
 # Query the movies data and loop through the results to display the movies output
 # TODO!
